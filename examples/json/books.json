@@ -1,0 +1,25 @@
+{
+  "isbn" : "",
+  "bookTitle" : "Undisturbed REST: a Guide to Designing the Perfect API",
+  "synopsis" : "Learn the basics of REST and design best practices with modern technologies",
+  "author" : {
+    "authorId" : 5,
+    "firstName" : "Michael",
+    "lastName" : "Stowe",
+    
+    "_links" : {
+      "self" : {
+        "title" : "View Mike's Information",
+        "href" : "/authors/5",
+        "methods" : ["get"]
+      },
+      
+      "books" : {
+        "title" : "Get a List of Mike's Books",
+        "href" : "/books?authorId=5",
+        "methods" : ["get"]
+      }
+    
+    }
+  }
+}

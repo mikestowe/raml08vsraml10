@@ -1,0 +1,25 @@
+#%RAML 1.0 Library
+
+types:
+  
+  book:
+    type: object
+    properties:
+      isbn: 
+        type: integer
+        example: 234238947294732987
+        
+      title: 
+        type: string
+        example: "Undisturbed REST: a Guide to Designing the Perfect API"
+      
+      synopsis:  string
+      author:    author
+  
+  author:
+      type: object
+      properties:
+        authorId: integer
+        firstname: string
+        lastname:  string
+        title?:    string

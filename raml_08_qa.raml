@@ -1,0 +1,110 @@
+#%RAML 0.8
+title: RAML QA API
+version: 1
+baseUri: http://api.raml.org
+
+resourceTypes:
+ - collection:
+     get:
+      responses:
+        200:
+        400:
+        401:
+        405:
+        415:
+        429:
+        500:
+     post:
+      responses:
+        201:
+        400:
+        401:
+        405:
+        415:
+        429:
+        500:
+
+ - item:
+     get:
+      responses:
+        200:
+        400:
+        401:
+        405:
+        415:
+        429:
+        500:
+     put:
+      responses:
+        200:
+        201:
+        304:
+        400:
+        401:
+        405:
+        415:
+        429:
+        500:
+     delete:
+      responses:
+        200:
+        202:
+        400:
+        401:
+        405:
+        415:
+        429:
+        500:
+
+/books:
+  type: collection
+  
+  get:
+    queryParameters:
+      title:
+      publisherId:
+      publisherName:
+      publishDate:
+      authorId:
+      authorName:
+      
+    responses:
+      200:
+        body:
+          application/json:
+            schema: !include schemas/json/books.json
+            example: !include examples/json/books.json
+            
+          #text/xml:
+          #  schema: !include schemas/xml/books.xml
+          #  example: !include examples/xml/books.xml
+          
+
+  /{isbn}:
+    type: item
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include schemas/json/books.json
+              example: !include examples/json/books.json
+              
+            #text/xml:
+            #  schema: !include schemas/xml/books.xml
+            #  example: !include examples/xml/books.xml
+  
+/authors:
+  type: collection
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            schema: !include schemas/json/authors.json
+            example: !include examples/json/authors.json
+            
+          #text/xml:
+          #  schema: !include schemas/xml/books.xml
+          #  example: !include examples/xml/books.xml
+

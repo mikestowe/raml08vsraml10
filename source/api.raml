@@ -1,0 +1,53 @@
+#%RAML 1.0
+baseUri: https://api.raml.org
+title: RAML API
+version: 1
+
+uses:
+  global: ../libraries/global.raml
+  books: ../libraries/books.raml
+    
+/books:
+  type:
+    global.collection:
+  get:
+    queryParameters:
+      title:
+      publisherId:
+      publisherName:
+      publishDate:
+      authorId:
+      authorName:
+      
+    responses:
+      200:
+        body:
+          application/json:
+            type: [books.book]
+          text/xml:
+            type: [books.book]
+          
+
+  /{isbn}:
+    type:
+      global.item:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: books.book
+            text/xml:
+              type: books.book
+/authors:
+  type:
+    global.collection:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            type: [books.author]
+          text/xml:
+            type: [books.author]
+

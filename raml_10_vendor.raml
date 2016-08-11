@@ -1,0 +1,13 @@
+#%RAML 1.0 Overlay
+usage: Used for Amazon Stores
+extends: source/api.raml
+
+annotationTypes:
+  kindle: boolean
+  print: boolean
+    
+/books:
+  (kindle): true
+  (print): false
+    
+    

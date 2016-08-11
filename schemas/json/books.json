@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "isbn": {
+      "type": "string"
+    },
+    "bookTitle": {
+      "type": "string"
+    },
+    "synopsis": {
+      "type": "string"
+    },
+    "author": {
+      "type": "object",
+      "properties": {
+        "authorId": {
+          "type": "integer"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "_links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "href": {
+                  "type": "string"
+                },
+                "methods": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "href",
+                "methods"
+              ]
+            },
+            "books": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "href": {
+                  "type": "string"
+                },
+                "methods": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "href",
+                "methods"
+              ]
+            }
+          },
+          "required": [
+            "self",
+            "books"
+          ]
+        }
+      },
+      "required": [
+        "authorId",
+        "firstName",
+        "lastName",
+        "_links"
+      ]
+    }
+  },
+  "required": [
+    "isbn",
+    "bookTitle",
+    "synopsis",
+    "author"
+  ]
+}
